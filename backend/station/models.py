@@ -22,3 +22,6 @@ class Antenna(models.Model):
 class Transceiver(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, null=False, blank=False, help_text="Transceiver name")
+
+    def __str__(self) -> str:
+        return f"{self.name}"
