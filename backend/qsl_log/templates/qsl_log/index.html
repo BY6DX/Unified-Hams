@@ -1,5 +1,10 @@
-<!-- TODO: add header -->
+{# https://docs.djangoproject.com/zh-hans/4.0/ref/templates/language/#template-inheritance #}
 
+{% extends "base.html" %}
+
+{% block title %}QSL Logs{% endblock %}
+
+{% block content %}
 {% if log_entries %}
     <ul>
     {% for log_entry in log_entries %}
@@ -9,3 +14,5 @@
 {% else %}
     <p>No logs available.</p>
 {% endif %}
+{% endblock %}
+
