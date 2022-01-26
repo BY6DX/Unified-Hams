@@ -1,0 +1,11 @@
+<!-- TODO: add header -->
+
+{% if log_entries %}
+    <ul>
+    {% for log_entry in log_entries %}
+        <li>{{ log_entry.datetime }} {{ log_entry.station }} {{ log_entry.antenna }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No logs available.</p>
+{% endif %}

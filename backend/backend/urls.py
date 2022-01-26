@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from qsl_log.views import QSLLogIndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('qsl-log/', QSLLogIndexView)
 ]
