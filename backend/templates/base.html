@@ -11,24 +11,32 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm d-flex">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <a class="navbar-brand" href="/">
             Unified-Hams
         </a>
         <!-- TODO: mobile button -->
         <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/qsl-log/">QSL Logs</a>
                 </li>
             </ul>
-            <!-- TODO: add user form -->
+            {% if user.is_authenticated %}
+            <span class="navbar-text">
+                Logged in as {{ user.username }}, <a class="navbar-text" href="/user/logout">Logout</a>
+            </span>
+            {% else %}
+
+            {% endif %}
         </div>
+
+        
         
     </nav>
 
     <div id="sidebar">{% block sidebar %}{% endblock %}</div>
-    <div id="content">{% block content %}{% endblock %}</div>
+    <div class="container mt-4">{% block content %}{% endblock %}</div>
 
 </body>
 </html>

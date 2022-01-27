@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.template import loader
+from django.http import HttpResponse
+
 from qsl_log.views import QSLLogIndexView
+
+def IndexView(request):
+    template = loader.get_template('index.html')
+
+    context = {}
+    return HttpResponse(template.render(context, request))
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('qsl-log/', QSLLogIndexView)
+    path('qsl-log/', QSLLogIndexView),
+    path('', IndexView)
 ]

@@ -5,17 +5,33 @@
 {% block title %}QSL Logs{% endblock %}
 
 {% block content %}
+
+
 {% if log_entries %}
-    <table class="table table-sm">
+    <table class="table table-sm table-bordered">
         <thead>
             <tr>
-                <th scope="col">Datetime (Local)</th>
+                <th scope="col"></th>
+                <th scope="col" colspan="9">Home</th>
+                <th scope="col" colspan="5">Away</th>
+            </tr>
+            <tr>
+                <th scope="col">Localtime</th>
                 <th scope="col">Station</th>
                 <th scope="col">Antenna</th>
                 <th scope="col">Transceiver</th>
                 <th scope="col">Power</th>
-                <th scope="col">Signal Report</th>
+                <th scope="col">Signal</th>
                 <th scope="col">Operator</th>
+                <th scope="col">Mode</th>
+                <th scope="col">TX Freq.</th>
+                <th scope="col">RX Freq.</th>
+
+                <th scope="col">Station</th>
+                <th scope="col">Antenna</th>
+                <th scope="col">Transceiver</th>
+                <th scope="col">Power</th>
+                <th scope="col">Signal</th>
             </tr>
         </thead>
         <tbody>
@@ -25,9 +41,19 @@
                 <td>{{ log_entry.station }} </td>
                 <td>{{ log_entry.antenna }} </td>
                 <td>{{ log_entry.transceiver }} </td>
-                <td>{{ log_entry.power }} </td>
+                <td>{{ log_entry.power }} W</td>
                 <td>{{ log_entry.signal_report }} </td>
                 <td>{{ log_entry.operator }} </td>
+
+                <td>{{ log_entry.mode }} </td>
+                <td>{{ log_entry.tx_freq }} </td>
+                <td>{{ log_entry.rx_freq }} </td>
+
+                <td>{{ log_entry.remote_station }} </td>
+                <td>{{ log_entry.remote_antenna }} </td>
+                <td>{{ log_entry.remote_transceiver }} </td>
+                <td>{{ log_entry.remote_power }} W</td>
+                <td>{{ log_entry.remote_signal_report }} </td>
             </tr>
         {% endfor %}
         </tbody>
